@@ -1,0 +1,88 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "cause-lib"
+  },
+  "apps": [
+    {
+      "name": "lib",
+      "root": "src/lib",
+      "outDir": "dist",
+      "assets": [
+        { "glob": "**/*", "input": "../assets/", "output": "./assets/cause/" }
+      ],
+      "index": "../demo-app/index.html",
+      "main": "../demo-app/main.ts",
+      "polyfills": "../demo-app/polyfills.ts",
+      "test": "../test/test.ts",
+      "tsconfig": "../tsconfig.lib.json",
+      "testTsconfig": "../tsconfig.spec.json",
+      "prefix": "cause",
+      "mobile": true,
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "name": "demo",
+      "root": "src/demo-app",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        { "glob": "**/*", "input": "../assets/", "output": "./assets/cause/" }
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "tsconfig": "../tsconfig.demo.json",
+      "prefix": "demo",
+      "mobile": true,
+      "styles": [
+        "../style/theme.scss",
+        "../style/cause.styl",
+        "../../node_modules/devextreme/dist/css/dx.common.css",
+        "../../node_modules/devextreme/dist/css/dx.light.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.lib.json",
+      "exclude": "**/node_modules/**/*"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**/*"
+    },
+    {
+      "project": "src/tsconfig.demo.json",
+      "exclude": "**/node_modules/**/*"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**/*"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "styl",
+    "component": {
+      "inlineTemplate": false,
+      "spec": true
+    }
+  }
+}
