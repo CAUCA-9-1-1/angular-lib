@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
+import { DxDataGridModule } from 'devextreme-angular';
 
 import {
   CauseModule,
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     MaterialModule,
+    DxDataGridModule,
     CauseModule.forRoot()
   ],
   providers: [

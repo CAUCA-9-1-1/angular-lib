@@ -7,6 +7,25 @@
 </md-card>
 <br />
 <md-card>
+  <md-card-title>Language of DevExtreme</md-card-title>
+  <md-card-content>
+    <dx-data-grid
+            [dataSource]="infos"
+            [hoverStateEnabled]="true"
+            (onRowUpdated)="onDatagridUpdated($event)"
+            (onRowRemoved)="onDatagridRemoved($event)">
+      <dxi-column
+              dataField="name"
+              caption="Name"
+              [calculateCellValue]="onCalculateCellValue">
+      </dxi-column>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true"></dxo-editing>
+    </dx-data-grid>
+  </md-card-content>
+</md-card>
+<br />
+<md-card>
   <md-card-title>Multilang Component</md-card-title>
   <md-card-content>
     <cause-multilang></cause-multilang>

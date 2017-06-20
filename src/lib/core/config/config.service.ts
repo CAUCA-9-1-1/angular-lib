@@ -28,12 +28,12 @@ export class ConfigService {
   }
 
   public useLang(lang: string) {
-    if (lang === 'fr') {
-      this.http.get(
-        '/assets/cause/locale/devextreme/fr.json',
-      ).map((response: Response) => {
-        loadMessages(response.json())
-        locale('fr');
+    const devExtremeCustomLanguage = ['fr'];
+
+    if (devExtremeCustomLanguage.indexOf(lang) > -1) {
+      this.http.get(`/assets/cause/locale/devextreme/${lang}.json`).map((response: Response) => {
+        loadMessages(response.json());
+        locale(lang);
       }).subscribe();
     } else {
       locale(lang);
