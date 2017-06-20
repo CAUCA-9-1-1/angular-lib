@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { TranslateService } from '@ngx-translate/core';
-import { locale, loadMessages } from 'devextreme/localization';
+import { locale } from 'devextreme/localization';
 
 import { ConfigOptions } from './config.model';
 
@@ -16,6 +16,7 @@ export class ConfigService {
     private translate?: TranslateService
   ) {
     if (this.translate) {
+      locale(this.translate.getBrowserLang());
       this.translate.setDefaultLang(this.translate.getBrowserLang());
     }
   }
@@ -28,16 +29,7 @@ export class ConfigService {
   }
 
   public useLang(lang: string) {
-    const devExtremeCustomLanguage = ['fr'];
-
-    if (devExtremeCustomLanguage.indexOf(lang) > -1) {
-      this.http.get(`/assets/cause/locale/devextreme/${lang}.json`).map((response: Response) => {
-        loadMessages(response.json());
-        locale(lang);
-      }).subscribe();
-    } else {
-      locale(lang);
-    }
+    locale(lang);
 
     if (this.translate) {
       this.translate.use(lang);
