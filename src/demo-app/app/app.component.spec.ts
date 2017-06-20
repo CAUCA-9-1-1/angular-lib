@@ -3,6 +3,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+import { DxDataGridModule } from 'devextreme-angular';
 
 import { CauseTestModule } from '../../test/module';
 import { CauseModule } from '../../lib';
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
         HttpModule,
         RouterModule.forRoot([]),
         MaterialModule,
+        DxDataGridModule,
         CauseModule.forRoot(),
         CauseTestModule
       ],
