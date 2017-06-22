@@ -1,18 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RequestOptions, XHRBackend } from '@angular/http';
-import { loadMessages } from 'devextreme/localization';
 
-import {} from '../core/extends/string';
+import './extends/string';
+import './extends/devextreme-fr';
 import { ConfigService, provideConfig, provideConfigLoader } from './config';
 import { HttpService } from './http';
 import { AuthorizeRequestOptions } from './http/authorize-request-options';
-import { CauseSharedModule } from '../shared/module';
 import { RequestLoaderService } from './request-loader/request-loader.service';
 import { RequestLoaderComponent } from './request-loader/request-loader.component';
-
-import { FR } from './extends/devextreme-fr';
-
-loadMessages(FR);
+import { CauseSharedModule } from '../shared/module';
 
 export function httpServiceFactory(
   backend: XHRBackend,

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { locale } from 'devextreme/localization';
 
 import {
-  ConfigService,
   DevextremeDatagrid,
   HttpService,
   WindowRefService,
 } from '../../lib';
+import '../../lib/core/extends/devextreme-fr';
 
 @Component({
   selector: 'cause-demo',
@@ -19,13 +20,12 @@ export class AppComponent extends DevextremeDatagrid implements OnInit {
   ];
 
   constructor(
-    private config?: ConfigService,
     private http?: HttpService,
     private windowRef?: WindowRefService,
   ) {
     super();
 
-    this.config.useLang('fr');
+    locale('fr');
   }
 
   ngOnInit() {

@@ -1,4 +1,6 @@
-export const FR = {
+import { loadMessages } from 'devextreme/localization';
+
+loadMessages({
   'fr': {
     'Yes': 'Oui',
     'No': 'Non',
@@ -88,7 +90,8 @@ export const FR = {
     'dxDataGrid-editingUndeleteRow': 'Récupérer',
     'dxDataGrid-editingConfirmDeleteMessage': 'Êtes-vous sûr de vouloir supprimer ce document?',
     'dxDataGrid-validationCancelChanges': 'Annuler les modifications',
-    'dxDataGrid-groupPanelEmptyText': 'Faites glisser un en-tête de colonne ici pour grouper par cette colonne',
+    'dxDataGrid-groupPanelEmptyText':
+      'Faites glisser un en-tête de colonne ici pour grouper par cette colonne',
     'dxDataGrid-noDataText': 'Pas de données',
     'dxDataGrid-searchPanelPlaceholder': 'Chercher...',
     'dxDataGrid-filterRowShowAllText': '(Tout)',
@@ -213,8 +216,10 @@ export const FR = {
     'dxScheduler-recurrenceRepeatCount': 'occurrence(s)',
     'dxScheduler-allDay': 'All day',
 
-    'dxScheduler-confirmRecurrenceEditMessage': 'Do you want to edit only this appointment or the whole series?',
-    'dxScheduler-confirmRecurrenceDeleteMessage': 'Do you want to delete only this appointment or the whole series?',
+    'dxScheduler-confirmRecurrenceEditMessage':
+      'Do you want to edit only this appointment or the whole series?',
+    'dxScheduler-confirmRecurrenceDeleteMessage':
+      'Do you want to delete only this appointment or the whole series?',
 
     'dxScheduler-confirmRecurrenceEditSeries': 'Edit series',
     'dxScheduler-confirmRecurrenceDeleteSeries': 'Delete series',
@@ -236,4 +241,4 @@ export const FR = {
     'vizExport-titleMenuText': 'Exporté/Imprimer',
     'vizExport-exportButtonText': '{0} fichier'
   }
-}
+});

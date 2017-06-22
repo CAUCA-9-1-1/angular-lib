@@ -15,8 +15,10 @@ export class ConfigService {
     private http: Http,
     private translate?: TranslateService
   ) {
+    locale('fr');
+
     if (this.translate) {
-      locale(this.translate.getBrowserLang());
+      this.translate.use('fr');
       this.translate.setDefaultLang(this.translate.getBrowserLang());
     }
   }
@@ -26,14 +28,6 @@ export class ConfigService {
    */
   public getConfig(key: string): any {
     return this.config[key] || undefined;
-  }
-
-  public useLang(lang: string) {
-    locale(lang);
-
-    if (this.translate) {
-      this.translate.use(lang);
-    }
   }
 
   /**
