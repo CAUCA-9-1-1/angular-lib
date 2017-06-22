@@ -1,6 +1,8 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Http } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, GestureConfig } from '@angular/material';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import 'hammerjs/hammer';
@@ -19,9 +21,12 @@ export function createTranslateLoader(http: Http) {
   exports: [
     CommonModule,
     MaterialModule,
+    TranslateModule,
   ],
   imports: [
     CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     MaterialModule,
     TranslateModule.forRoot({
       loader: {

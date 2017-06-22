@@ -18,8 +18,8 @@ export class ConfigService {
     locale('fr');
 
     if (this.translate) {
-      this.translate.use('fr');
       this.translate.setDefaultLang(this.translate.getBrowserLang());
+      this.translate.use('fr');
     }
   }
 

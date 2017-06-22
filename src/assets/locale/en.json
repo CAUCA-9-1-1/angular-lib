@@ -1,4 +1,7 @@
 {
   "en": "English",
-  "fr": "French"
+  "fr": "French",
+  "yes": "Yes",
+  "no": "No",
+  "pleaseWait": "Please wait"
 }

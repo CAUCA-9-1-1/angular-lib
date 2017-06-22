@@ -41,6 +41,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('md-card-title').textContent)
-      .toContain('Http Service');
+      .toContain('Dialog');
   }));
 });

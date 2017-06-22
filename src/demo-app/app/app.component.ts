@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { locale } from 'devextreme/localization';
 
 import {
   DevextremeDatagrid,
+  DialogsService,
   HttpService,
   WindowRefService,
 } from '../../lib';
@@ -20,15 +20,26 @@ export class AppComponent extends DevextremeDatagrid implements OnInit {
   ];
 
   constructor(
+    private dialog?: DialogsService,
     private http?: HttpService,
     private windowRef?: WindowRefService,
   ) {
     super();
-
-    locale('fr');
   }
 
   ngOnInit() {
+  }
+
+  public onTestDialogConfirm() {
+    this.dialog.confirm('Test confirm', 'Question oui/non');
+  }
+
+  public onTestDialogFullscreen() {
+    this.dialog.fullscreen('Test fullscreen', 'Avec du contenu plein écran');
+  }
+
+  public onTestDialogWait() {
+    this.dialog.wait();
   }
 
   public onTestHttpService() {
