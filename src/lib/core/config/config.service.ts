@@ -15,11 +15,12 @@ export class ConfigService {
     private http: Http,
     private translate?: TranslateService
   ) {
-    locale('fr');
-
     if (this.translate) {
-      this.translate.setDefaultLang(this.translate.getBrowserLang());
-      this.translate.use('fr');
+      const browserLang = this.translate.getBrowserLang();
+      const language = browserLang.match(/en|fr/) ? browserLang : 'en';
+
+      locale(language);
+      this.translate.setDefaultLang(language);
     }
   }
 
@@ -30,12 +31,22 @@ export class ConfigService {
     return this.config[key] || undefined;
   }
 
+  public setConfig() {
+    if (this.config['locale']) {
+      locale(this.config['locale']);
+      if (this.translate) {
+        this.translate.use(this.config['locale']);
+      }
+    }
+  }
+
   /**
    * This method loads "[path]" to get all config's variables
    */
   public load(options: ConfigOptions) {
     if (options.default) {
       this.config = options.default;
+      this.setConfig();
     }
     if (!options.path) {
       return true;
@@ -48,6 +59,7 @@ export class ConfigService {
         return Observable.throw(error.json().error || 'Server error');
       }).subscribe((configResponse) => {
         Object.assign(this.config, configResponse);
+        this.setConfig();
         resolve(true);
       });
     });

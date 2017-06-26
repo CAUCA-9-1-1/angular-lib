@@ -9,7 +9,6 @@ const CAUSE_MODULES = [
   CauseCoreModule,
   CauseDialogModule,
   CauseFormModule,
-  CauseSharedModule,
 ];
 
 @NgModule({

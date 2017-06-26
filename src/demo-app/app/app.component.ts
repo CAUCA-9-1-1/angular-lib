@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {LanguageService} from 'igo2';
+
 import {
   DevextremeDatagrid,
   DialogsService,
@@ -23,8 +25,11 @@ export class AppComponent extends DevextremeDatagrid implements OnInit {
     private dialog?: DialogsService,
     private http?: HttpService,
     private windowRef?: WindowRefService,
+    private language?: LanguageService
   ) {
     super();
+
+    this.language.setLanguage('fr');
   }
 
   ngOnInit() {

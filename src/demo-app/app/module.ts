@@ -8,6 +8,11 @@ import { environment } from '../environments/environment';
 import { DxDataGridModule } from 'devextreme-angular';
 
 import {
+  IgoModule,
+  provideConfigOptions,
+} from 'igo2';
+
+import {
   CauseModule,
   provideConfig,
 } from '../../lib';
@@ -25,9 +30,14 @@ import { AppComponent } from './app.component';
     HttpModule,
     MaterialModule,
     DxDataGridModule,
-    CauseModule.forRoot()
+    IgoModule.forRoot(),
+    CauseModule.forRoot(),
   ],
   providers: [
+    provideConfigOptions({
+      default: environment.igo,
+      // path: './assets/config-igo.json'
+    }),
     provideConfig({
       default: environment.cause,
       // path: 'assets/config.json'

@@ -1,6 +1,6 @@
 <cause-request-loader></cause-request-loader>
 <md-card>
-  <md-card-title>Dialog</md-card-title>
+  <md-card-title>{{'dialog' | translate}}</md-card-title>
   <md-card-content>
     <button md-button (click)="onTestDialogConfirm()">Confirm</button>
     <button md-button (click)="onTestDialogFullscreen()">Fullscreen</button>
@@ -25,7 +25,7 @@
             (onRowRemoved)="onDatagridRemoved($event)">
       <dxi-column
               dataField="name"
-              caption="Name"
+              caption="{{'name' | translate}}"
               [calculateCellValue]="onCalculateCellValue">
       </dxi-column>
       <dxo-filter-row [visible]="true"></dxo-filter-row>
