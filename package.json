@@ -1,6 +1,6 @@
 {
   "name": "cause-lib",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "author": "CAUCA 9-1-1 <dev@cauca.ca> (http://www.cauca.ca)",
   "description": "CAUSE Library",
   "main": "bundle/cause.js",

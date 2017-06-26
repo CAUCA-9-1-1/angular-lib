@@ -2,27 +2,24 @@ import { TestBed, async } from '@angular/core/testing';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
 import { DxDataGridModule } from 'devextreme-angular';
 
 import { CauseTestModule } from '../../test/module';
-import { CauseModule } from '../../lib';
-
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpModule,
-        RouterModule.forRoot([]),
-        MaterialModule,
-        DxDataGridModule,
-        CauseModule.forRoot(),
-        CauseTestModule
-      ],
       declarations: [
         AppComponent
+      ],
+      imports: [
+        RouterModule.forRoot([]),
+        HttpModule,
+        DxDataGridModule,
+        SharedModule,
+        CauseTestModule
       ],
       providers: [
         [{provide: APP_BASE_HREF, useValue : '/' }],
