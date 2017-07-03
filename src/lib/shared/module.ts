@@ -11,17 +11,21 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { WindowRefService } from './services/window-ref.service';
+import { PinchZoomDirective } from './directives/pinch-zoom.directive';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/cause/locale/', '.json');
 }
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PinchZoomDirective,
+  ],
   exports: [
     CommonModule,
     MaterialModule,
     TranslateModule,
+    PinchZoomDirective,
   ],
   imports: [
     CommonModule,

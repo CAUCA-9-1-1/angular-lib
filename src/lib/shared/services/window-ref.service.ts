@@ -39,7 +39,7 @@ export class WindowRefService {
   }
 
   public nativeClass(name: string): any {
-    const window: any = getWindow();
+    const window: any = this.nativeWindow;
 
     if (typeof (window[name]) !== 'undefined') {
       return new window[name]();
@@ -49,7 +49,7 @@ export class WindowRefService {
   }
 
   public nativeObject(name: string): any {
-    const window: any = getWindow();
+    const window: any = this.nativeWindow;
 
     if (typeof (window[name]) !== 'undefined') {
       return window[name];
