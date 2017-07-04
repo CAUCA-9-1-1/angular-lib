@@ -1,22 +1,23 @@
 <cause-request-loader></cause-request-loader>
+<h1>Demo cause-lib/angular-lib</h1>
 <md-card>
   <md-card-title>{{'dialog' | translate}}</md-card-title>
   <md-card-content>
-    <button md-button (click)="onTestDialogConfirm()">Confirm</button>
-    <button md-button (click)="onTestDialogFullscreen()">Fullscreen</button>
-    <button md-button (click)="onTestDialogWait()">Wait</button>
+    <button md-button (click)="onTestDialogConfirm()">{{'confirm' | translate}}</button>
+    <button md-button (click)="onTestDialogFullscreen()">{{'fullscreen' | translate}}</button>
+    <button md-button (click)="onTestDialogWait()">{{'wait' | translate}}</button>
   </md-card-content>
 </md-card>
 <br />
 <md-card>
-  <md-card-title>Http Service</md-card-title>
+  <md-card-title>{{'httpService' | translate}}</md-card-title>
   <md-card-content>
     <button id="http-service" md-button (click)="onTestHttpService()">TEST</button>
   </md-card-content>
 </md-card>
 <br />
 <md-card>
-  <md-card-title>Language of DevExtreme</md-card-title>
+  <md-card-title>{{'languageDevextreme' | translate}}</md-card-title>
   <md-card-content>
     <dx-data-grid
             [dataSource]="infos"
@@ -35,21 +36,21 @@
 </md-card>
 <br />
 <md-card>
-  <md-card-title>Multilang Component</md-card-title>
+  <md-card-title>{{'multilangComponent' | translate}}</md-card-title>
   <md-card-content>
     <cause-multilang></cause-multilang>
   </md-card-content>
 </md-card>
 <br />
 <md-card>
-  <md-card-title>TakePicture Component</md-card-title>
+  <md-card-title>{{'takepictureComponent' | translate}}</md-card-title>
   <md-card-content>
     <cause-takepicture></cause-takepicture>
   </md-card-content>
 </md-card>
 <br />
 <md-card>
-  <md-card-title>Window Reference</md-card-title>
+  <md-card-title>{{'windowReference' | translate}}</md-card-title>
   <md-card-content>
     <button id="window-reference" md-button (click)="onTestWindowReference()">TEST</button>
   </md-card-content>

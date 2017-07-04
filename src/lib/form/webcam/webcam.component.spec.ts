@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CauseSharedModule } from '../../shared/module';
 import { WebcamComponent } from './webcam.component';
 
 describe('WebcamComponent', () => {
@@ -8,6 +9,7 @@ describe('WebcamComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ CauseSharedModule ],
       declarations: [ WebcamComponent ]
     })
     .compileComponents();

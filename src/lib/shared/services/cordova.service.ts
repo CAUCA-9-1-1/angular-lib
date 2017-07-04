@@ -23,7 +23,11 @@ export class CordovaService {
 
   public execute(pluginName, functionName, options) {
     setTimeout(((e) => {
-      this.windowRef.nativeNavigator[pluginName][functionName](this.onSuccess.bind(this), this.onFail.bind(this), options);
+      this.windowRef.nativeNavigator[pluginName][functionName](
+        this.onSuccess.bind(this),
+        this.onFail.bind(this),
+        options
+      );
     }).bind(this), this.delay);
   }
 

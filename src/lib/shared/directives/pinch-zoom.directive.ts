@@ -35,7 +35,9 @@ export class PinchZoomDirective {
   }
 
   setPinch(e) {
-    const hammerTag = new Hammer(this.windowRef.nativeDocument.querySelectorAll('app-fullscreen-dialog img')[0]);
+    const hammerTag = new Hammer(
+      this.windowRef.nativeDocument.querySelectorAll('app-fullscreen-dialog img')[0]
+    );
 
     hammerTag.get('pinch').set({ enable: true });
     hammerTag.on('pan', (event) => {
@@ -49,7 +51,8 @@ export class PinchZoomDirective {
       ];
     });
     hammerTag.on('pinch', (event) => {
-      event.target.style.transform = 'scale(' + (this.lastScale * event.scale) + ',' + (this.lastScale * event.scale) + ')';
+      event.target.style.transform = 'scale(' +
+        (this.lastScale * event.scale) + ',' + (this.lastScale * event.scale) + ')';
     });
     hammerTag.on('pinchend', (event) => {
       this.lastScale *= event.scale;

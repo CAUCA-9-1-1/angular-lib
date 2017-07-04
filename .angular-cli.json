@@ -9,7 +9,8 @@
       "root": "src/lib",
       "outDir": "dist",
       "assets": [
-        { "glob": "**/*", "input": "../assets/", "output": "./assets/cause/" }
+        { "glob": "**/*", "input": "../assets/", "output": "./assets/cause/" },
+        { "glob": "**/*", "input": "../demo-app/assets/", "output": "./assets/" }
       ],
       "index": "../demo-app/index.html",
       "main": "../demo-app/main.ts",

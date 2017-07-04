@@ -1,7 +1,8 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 
-import {TestModule} from '../../../test.module';
-import {TakePictureComponent} from './take-picture.component';
+import { CauseSharedModule } from '../../shared/module';
+import { TakePictureComponent } from './take-picture.component';
 
 describe('TakePictureComponent', () => {
   let component: TakePictureComponent;
@@ -9,9 +10,12 @@ describe('TakePictureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [TestModule],
+      imports: [
+        HttpModule,
+        CauseSharedModule,
+      ],
       declarations: [
-        // TakePictureComponent
+        TakePictureComponent
       ]
     })
     .compileComponents();

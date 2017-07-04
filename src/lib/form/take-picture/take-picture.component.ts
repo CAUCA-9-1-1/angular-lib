@@ -15,7 +15,8 @@ import {WebcamComponent} from '../webcam/webcam.component';
   templateUrl: './take-picture.component.html',
   styleUrls: ['./take-picture.component.styl'],
   providers: [
-    CordovaService, {
+    CordovaService,
+    DialogsService, {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => TakePictureComponent),
       multi: true
@@ -144,7 +145,9 @@ export class TakePictureComponent implements OnInit, ControlValueAccessor {
     this.dialogService.wait();
 
     if (this.cordova.isActive) {
-      this.imgRef.nativeElement.src = (imageURI.indexOf('file://') === 0 ? '' : 'data:image/jpeg;base64,') + imageURI;
+      const isDataURI = (imageURI.indexOf('file://') === 0 ? '' : 'data:image/jpeg;base64,');
+
+      this.imgRef.nativeElement.src = isDataURI + imageURI;
     } else {
       this.imgRef.nativeElement.src = imageURI.target.result;
     }

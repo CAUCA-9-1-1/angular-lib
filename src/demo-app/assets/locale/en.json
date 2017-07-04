@@ -1,4 +1,12 @@
 {
   "dialog": "Dialog",
-  "name": "Name"
+  "name": "Name",
+  "confirm": "Confirm",
+  "fullscreen": "Fullscreen",
+  "wait": "Wait",
+  "httpService": "HTTP service",
+  "languageDevextreme": "Language of DevExtreme",
+  "multilangComponent": "Component of multi language",
+  "takepictureComponent": "Component to select or take picture",
+  "windowReference": "Service for used browser variable"
 }
