@@ -5,7 +5,7 @@ export class DevextremeDatagrid {
 
   constructor() { }
 
-  protected onCalculateCellValue(field, data) {
+  public onCalculateCellValue(field, data) {
     if (typeof (data) === 'undefined') {
       data = field;
       field = 'name';
@@ -14,7 +14,7 @@ export class DevextremeDatagrid {
     return (data[field] ? data[field]['fr'] : '');
   }
 
-  protected onEditCellTemplate(cellElement, cellInfo) {
+  public onEditCellTemplate(cellElement, cellInfo) {
     /*$('<div>').dxMultiLang({
       value: cellInfo.data.name,
       onValueChanged: function (e) {
