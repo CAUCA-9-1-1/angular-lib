@@ -1,5 +1,5 @@
 <dx-tab-panel
-        [items]="tabs"
+        [items]="labels"
         [selectedIndex]="0"
         (onSelectionChanged)="onTabChanged($event)">
   <ng-container *ngFor="let lang of labels; let i = index">
