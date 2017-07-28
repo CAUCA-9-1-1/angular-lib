@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import {
   Http,
   Response,
@@ -10,6 +11,7 @@ import {
 import {AuthorizeRequestOptions} from './authorize-request-options';
 import {WindowRefService} from '../../shared/services/window-ref.service';
 import {ConfigService} from '../config/config.service';
+
 
 @Injectable()
 export class AuthService extends Http {
@@ -39,8 +41,8 @@ export class AuthService extends Http {
         this.login().subscribe((infoToken) => {
           AuthService.isInLoginProcess = false;
 
-          if (infoToken.data.accessToken) {
-            this.storage.setItem('currentToken', infoToken.data.accessToken);
+          if (infoToken['data'].accessToken) {
+            this.storage.setItem('currentToken', infoToken['data'].accessToken);
             this.reload();
           } else {
             throw new Error('need to login');
@@ -50,7 +52,7 @@ export class AuthService extends Http {
     }
   }
 
-  protected login(username?: string, password?: string) {
+  protected login(username?: string, password?: string): Observable<Response> {
     this.storage.removeItem('currentToken');
 
     if (username && password) {
