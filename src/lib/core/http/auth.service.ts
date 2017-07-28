@@ -33,26 +33,7 @@ export class AuthService extends Http {
     this.location = this.windowRef.nativeObject('location');
   }
 
-  protected checkLogin(body: any) {
-    if (body.error && body.login === false) {
-      if (!AuthService.isInLoginProcess) {
-        AuthService.isInLoginProcess = true;
-
-        this.login().subscribe((infoToken) => {
-          AuthService.isInLoginProcess = false;
-
-          if (infoToken['data'].accessToken) {
-            this.storage.setItem('currentToken', infoToken['data'].accessToken);
-            this.reload();
-          } else {
-            throw new Error('need to login');
-          }
-        });
-      }
-    }
-  }
-
-  protected login(username?: string, password?: string): Observable<Response> {
+  public login(username?: string, password?: string): Observable<Response> {
     this.storage.removeItem('currentToken');
 
     if (username && password) {
@@ -77,8 +58,27 @@ export class AuthService extends Http {
     });
   }
 
-  protected logout() {
+  public logout() {
     this.storage.removeItem('currentToken');
+  }
+
+  protected checkLogin(body: any) {
+    if (body.error && body.login === false) {
+      if (!AuthService.isInLoginProcess) {
+        AuthService.isInLoginProcess = true;
+
+        this.login().subscribe((infoToken) => {
+          AuthService.isInLoginProcess = false;
+
+          if (infoToken['data'].accessToken) {
+            this.storage.setItem('currentToken', infoToken['data'].accessToken);
+            this.reload();
+          } else {
+            throw new Error('need to login');
+          }
+        });
+      }
+    }
   }
 
   private reload() {
