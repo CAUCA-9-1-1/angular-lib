@@ -50,22 +50,15 @@ export class AuthService extends Http {
     }
   }
 
-  private reload() {
-    this.location.reload();
-  }
-
-  private login() {
+  protected login(username?: string, password?: string) {
     this.storage.removeItem('currentToken');
-
-    const username = 'admin';
-    const password = 'cauca2017';
 
     if (username && password) {
       return this.put(
         'auth',
         JSON.stringify({
-          username: 'admin',
-          password: 'cauca2017'
+          username: username,
+          password: password
         }),
         this.secretkey()
       ).map((response: Response) => {
@@ -80,6 +73,14 @@ export class AuthService extends Http {
     ).map((response: Response) => {
       return response.json();
     });
+  }
+
+  protected logout() {
+    this.storage.removeItem('currentToken');
+  }
+
+  private reload() {
+    this.location.reload();
   }
 
   private secretkey() {
