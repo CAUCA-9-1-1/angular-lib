@@ -74,7 +74,7 @@ export class AuthService extends Http {
             this.storage.setItem('currentToken', infoToken['data'].accessToken);
             this.reload();
           } else {
-            throw new Error('need to login');
+            this.location.href = '/login/';
           }
         });
       }
