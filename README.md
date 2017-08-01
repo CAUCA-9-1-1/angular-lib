@@ -15,5 +15,6 @@ ANGULAR Library is under active development and new features will be regularly a
 
 High levels items planned for the next few months:
 
+- Remove the DevExtreme dependency
 - Better documentation
 - Better tests

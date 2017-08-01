@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, GestureConfig } from '@angular/material';
@@ -13,7 +13,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { WindowRefService } from './services/window-ref.service';
 import { PinchZoomDirective } from './directives/pinch-zoom.directive';
 
-export function createTranslateLoader(http: Http) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/cause/locale/', '.json');
 }
 
@@ -35,8 +35,8 @@ export function createTranslateLoader(http: Http) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [Http]
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
       }
     }),
   ],

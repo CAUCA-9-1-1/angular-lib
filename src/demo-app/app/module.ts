@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DxDataGridModule } from 'devextreme-angular';
 
@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
   imports: [
     RouterModule.forRoot([]),
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     DxDataGridModule,
 
     SharedModule,

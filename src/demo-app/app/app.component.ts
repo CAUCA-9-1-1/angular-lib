@@ -11,7 +11,7 @@ import {
 import '../../lib/core/extends/devextreme-fr';
 
 @Component({
-  selector: 'cause-demo',
+  selector: 'cause-app-demo',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.styl']
 })

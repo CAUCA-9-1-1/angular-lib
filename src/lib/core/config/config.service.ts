@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { TranslateService } from '@ngx-translate/core';
+
 import { locale } from 'devextreme/localization';
 
 import { ConfigOptions } from './config.model';
@@ -34,6 +35,7 @@ export class ConfigService {
   public setConfig() {
     if (this.config['locale']) {
       locale(this.config['locale']);
+
       if (this.translate) {
         this.translate.use(this.config['locale']);
       }
