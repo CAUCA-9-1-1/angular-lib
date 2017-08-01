@@ -37,7 +37,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent)
-      .toContain('Demo cause-lib/angular-lib');
+    expect(compiled.querySelector('h1').textContent).toContain('Demo of');
   }));
 });

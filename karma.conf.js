@@ -60,7 +60,8 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     },
-    singleRun: false
+    singleRun: false,
+    browserNoActivityTimeout: 20000,
   });
 
   if (process.env.TRAVIS) {

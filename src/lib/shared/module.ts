@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule, GestureConfig } from '@angular/material';
@@ -31,6 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     TranslateModule.forRoot({
       loader: {
