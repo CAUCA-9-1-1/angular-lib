@@ -112,36 +112,29 @@ export class HttpService extends AuthService {
 
   private onSuccess(result: Response): void {
     if (result instanceof Response) {
-      const body = result.json() || {};
-
-      this.checkLogin(body);
-      this.checkError(body);
+      // Actually, we don't enable any general validation
     }
   }
 
   private onError(error: Response | any): void {
-    let errorMessage: string;
-
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body['error'] || JSON.stringify(body);
 
-      errorMessage = error.status + ' - ' + (error.statusText || '') + ' ' + err;
+      if (error.status === 400) {
+        // We let the application handle this error
+      } else if (error.status === 401) {
+        this.checkLogin();
+      } else {
+        throw new Error(error.status + ' - ' + (error.statusText || '') + ' ' + err);
+      }
     } else {
-      errorMessage = error.message ? error.message : error.toString();
+      throw new Error(error.message ? error.message : error.toString());
     }
-
-    throw new Error(errorMessage);
   }
 
   private onEnd(): void {
     this.hideLoader();
-  }
-
-  private checkError(body) {
-    if (body.success === false) {
-      throw new Error(body.error);
-    }
   }
 
   private showLoader(): void {

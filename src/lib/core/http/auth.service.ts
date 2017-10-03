@@ -62,22 +62,20 @@ export class AuthService extends Http {
     this.storage.removeItem('currentToken');
   }
 
-  protected checkLogin(body: any) {
-    if (body.error && body.login === false) {
-      if (!AuthService.isInLoginProcess) {
-        AuthService.isInLoginProcess = true;
+  protected checkLogin() {
+    if (!AuthService.isInLoginProcess) {
+      AuthService.isInLoginProcess = true;
 
-        this.login().subscribe((infoToken) => {
-          AuthService.isInLoginProcess = false;
+      this.login().subscribe((infoToken) => {
+        AuthService.isInLoginProcess = false;
 
-          if (infoToken['data'].accessToken) {
-            this.storage.setItem('currentToken', infoToken['data'].accessToken);
-            this.reload();
-          } else {
-            this.location.href = '/login/';
-          }
-        });
-      }
+        if (infoToken['data'].accessToken) {
+          this.storage.setItem('currentToken', infoToken['data'].accessToken);
+          this.reload();
+        } else {
+          this.location.href = '/login/';
+        }
+      });
     }
   }
 
